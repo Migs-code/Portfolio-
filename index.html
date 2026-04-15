@@ -25,7 +25,7 @@
             <p>Architecting digital realities through code.</p>
             <div class="hero-btns">
                 <button class="btn-primary">OKAY</button>
-                <button class="btn-secondary">Download_Bold</button>
+                <button class="btn-secondary">Download_BOLD</button>
             </div>
         </div>
     </header>
@@ -149,10 +149,17 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
+    z-index: 1;
     background-image: 
         linear-gradient(var(--border) 1px, transparent 1px), 
         linear-gradient(90deg, var(--border) 1px, transparent 1px);
     background-size: 40px 40px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content h1 {
@@ -195,11 +202,14 @@ body {
     padding: 100px 10%;
     align-items: center;
     position: relative;
+    z-index: 10;
 }
 
 .about-image {
     flex: 1;
     min-width: 300px;
+    position: relative;
+    z-index: 2;
 }
 
 .about-image img {
@@ -213,6 +223,7 @@ body {
     padding-left: 50px;
     min-width: 300px;
     position: relative;
+    z-index: 2;
 }
 
 .bg-text {
@@ -240,6 +251,8 @@ body {
 
 .skills {
     padding: 100px 10%;
+    position: relative;
+    z-index: 20;
 }
 
 .skills-grid {
@@ -254,6 +267,8 @@ body {
     padding: 20px;
     border: 1px solid var(--border);
     border-radius: 8px;
+    position: relative;
+    z-index: 1;
 }
 
 .skill-info {
@@ -282,6 +297,8 @@ body {
     padding: 100px 10%;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 30;
 }
 
 .contact .glass-card {
@@ -293,7 +310,7 @@ body {
     border-radius: 15px;
     backdrop-filter: blur(10px);
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .contact-form {
@@ -335,6 +352,58 @@ body {
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+@media (max-width: 992px) {
+    .about {
+        padding: 80px 5%;
+    }
+    .bg-text {
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: center;
+        padding: 15px 0;
+    }
+    .nav-links {
+        display: none;
+    }
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text {
+        padding-left: 0;
+        margin-top: 50px;
+    }
+    .bg-text {
+        font-size: 4rem;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .btn-primary, .btn-secondary {
+        width: 80%;
+        margin: 10px auto;
+    }
+    .skills, .contact {
+        padding: 60px 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    .contact .glass-card {
+        padding: 20px;
+    }
 }
     </style>
 
