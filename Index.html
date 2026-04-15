@@ -3,86 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shasika Shehan | Portfolio</title>
+    <title>Miggy Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="logo">SHEHAN</div>
-        <nav>
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#blog">My Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <nav class="navbar">
+        <div class="logo">MiggyDemapitan<span>_</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content reveal">
+            <h1 id="dynamic-greeting">SYS_READY</h1>
+            <p>Architecting digital realities through code.</p>
+            <div class="hero-btns">
+                <button class="btn-primary">OKAY</button>
+                <button class="btn-secondary">Download_BOLD</button>
+            </div>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <p class="greeting">HELLO!</p>
-            <h1>I'm <span>Shasika Shehan</span></h1>
-            <h2>Fullstack Web Developer</h2>
-            <div class="hero-btns">
-                <button class="btn-primary">HIRE ME</button>
-                <button class="btn-secondary">MY WORKS</button>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="https://via.placeholder.com/500x600" alt="Shasika Shehan">
-        </div>
-    </section>
-
-    <section id="about" class="about">
+    <section id="about" class="about reveal">
         <div class="about-image">
-            <img src="https://via.placeholder.com/400x500" alt="About Me">
+            <img src="wallhaven-7pzrwv.png" alt="Miggy">
         </div>
         <div class="about-text">
-            <h2 class="bg-text">About</h2>
-            <h3>About Me</h3>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            <ul class="details">
-                <li><strong>Name:</strong> Shasika Shehan</li>
-                <li><strong>Date of birth:</strong> January 01, 1987</li>
-                <li><strong>Address:</strong> San Francisco CA 97987 USA</li>
-                <li><strong>Email:</strong> clarkthompson@gmail.com</li>
-                <li><strong>Phone:</strong> +1-2234-5678-9-0</li>
-            </ul>
-            <p class="stats"><span>73</span> Project complete</p>
-            <button class="btn-primary">DOWNLOAD CV</button>
+            <span class="bg-text">ABOUT</span>
+            <h2>I'm <span id="typewriter"></span></h2>
+            <p>
+                I am an 18-year-old Computer Science freshman. As an aspiring developer, 
+                I am currently mastering the foundations of HTML5, CSS3, and JavaScript, 
+                bridging the gap between logical architecture and aesthetic design.
+            </p>
         </div>
     </section>
 
-    <section id="skills" class="skills">
-        <h2 class="bg-text">Skills</h2>
-        <h3>My Skills</h3>
+    <section id="skills" class="skills reveal">
+        <h2>Kernel_Skills</h2>
         <div class="skills-grid">
-            <div class="skill">
-                <div class="skill-info"><span>PHP</span> <span>90%</span></div>
-                <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+            <div class="skill-item">
+                <div class="skill-info"><span>HTML5</span><span>60%</span></div>
+                <div class="progress-bar"><div class="progress" style="width: 60%"></div></div>
             </div>
-            <div class="skill">
-                <div class="skill-info"><span>jQuery</span> <span>85%</span></div>
-                <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+            <div class="skill-item">
+                <div class="skill-info"><span>CSS3</span><span>50%</span></div>
+                <div class="progress-bar"><div class="progress" style="width: 50%"></div></div>
             </div>
-            <div class="skill">
-                <div class="skill-info"><span>HTML5</span> <span>95%</span></div>
-                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            <div class="skill-item">
+                <div class="skill-info"><span>JavaScript</span><span>15%</span></div>
+                <div class="progress-bar"><div class="progress" style="width: 15%"></div></div>
             </div>
-            <div class="skill">
-                <div class="skill-info"><span>CSS3</span> <span>90%</span></div>
-                <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
-            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact reveal">
+        <div class="glass-card">
+            <span class="bg-text">CONTACT</span>
+            <h2>Initialize_Connection</h2>
+            <form class="contact-form">
+                <div class="input-group">
+                    <input type="text" placeholder="USER_NAME" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="USER_EMAIL" required>
+                </div>
+                <div class="input-group">
+                    <textarea placeholder="MESSAGE_DATA" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">SEND_PACKET</button>
+            </form>
         </div>
     </section>
 
     <script src="script.js"></script>
 </body>
-              </html>
-              
+</html>
