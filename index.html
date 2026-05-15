@@ -3,101 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Style.css">
+    <title>Valentine Proposal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            /* Using overflow-x: hidden prevents weird scrollbars when buttons move */
+            overflow-x: hidden; 
+            background-color: #fff0f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px; /* Limits container width on desktop */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container img {
+            max-width: 80%; /* Responsive image */
+            height: auto;
+            border-radius: 15px;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+            min-height: 100px; /* Keeps space for scaling button */
+        }
+
+        #yesBtn {
+            transition: transform 0.3s ease;
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+            white-space: nowrap;
+        }
+
+        #noBtn {
+            background-color: #808080;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 999;
+            transition: 0.2s; /* Smooth movement */
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.5rem; }
+            #yesBtn, #noBtn { padding: 10px 20px; }
+        }
+    </style>
 </head>
 <body>
-    <style>
-        body{
-    margin: 0;
-    padding: 0;
-   
-}
-.container{
-    text-align: center;
-    margin-top: 20vh;
-    font-family: sans-serif;
-}
-.buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
 
-#yesBtn {
-    transition: transform 0.3s ease; /* Makes the growth smooth */
-    background-color: #ff4d6d;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#noBtn {
-    background-color: #808080;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 999; /* Keeps the No button on top so it stays clickable */
-}
-    </style>
     <div class="container">
         <img src="123.gif" alt="Cute Bears">
-        <h1>Kiss ko bi
-        </h1>
+        <h1>Kiss ko bi</h1>
         <div class="buttons">
             <button id="yesBtn">Yes</button>
             <button id="noBtn">No</button>
         </div>
     </div>
 
-
     <script>
-      const noBtn = document.getElementById('noBtn');
-const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
 
-let clicks = 0;
+        let clicks = 0;
 
-// List of phrases for the No button
-const phrases = [
-    "No",
-    "kiss ko baaa",
-    "Laina...",
-    "adtoon gyud tika",
-    "Luod ka noh?",
-    "Iloveyou jannah HAHAH",
-    "Ayna pang luod ha?"
-];
+        const phrases = [
+            "No",
+            "kiss ko baaa",
+            "Laina...",
+            "adtoon gyud tika",
+            "Luod ka noh?",
+            "Iloveyou jannah HAHAH",
+            "Ayna pang luod ha?"
+        ];
 
-noBtn.addEventListener('click', () => {
-    clicks++;
+        noBtn.addEventListener('click', () => {
+            clicks++;
 
-    // 1. Cycle through the phrases
-    // If we run out of phrases, it will stay on the last one
-    const phraseIndex = Math.min(clicks, phrases.length - 1);
-    noBtn.innerText = phrases[phraseIndex];
+            // 1. Cycle through phrases
+            const phraseIndex = Math.min(clicks, phrases.length - 1);
+            noBtn.innerText = phrases[phraseIndex];
 
-    // 2. Make the YES button grow
-    const yesScale = 1 + (clicks * 0.6); 
-    yesBtn.style.transform = `scale(${yesScale})`;
+            // 2. Grow the YES button
+            // Reduced scale slightly for mobile screens (0.4 instead of 0.6)
+            const yesScale = 1 + (clicks * 0.4); 
+            yesBtn.style.transform = `scale(${yesScale})`;
 
-    // 3. Move the NO button to a random spot
-    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            // 3. Move the NO button randomly within viewport bounds
+            // We subtract a margin so it doesn't get stuck on the very edge
+            const padding = 50;
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - padding);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - padding);
 
-    noBtn.style.position = 'absolute'; 
-    noBtn.style.left = `${x}px`;
-    noBtn.style.top = `${y}px`;
-});
+            noBtn.style.position = 'fixed'; 
+            noBtn.style.left = `${Math.max(padding, x)}px`;
+            noBtn.style.top = `${Math.max(padding, y)}px`;
+        });
 
-yesBtn.addEventListener('click', () => {
-    alert('Yay! Iloveyousomuch');
-});
+        yesBtn.addEventListener('click', () => {
+            alert('Yay! Iloveyousomuch');
+        });
     </script>
 </body>
 </html>
